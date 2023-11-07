@@ -31,6 +31,7 @@
     <%= form.text_field :user, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+    <strong class="block font-medium mb-1">以下アップデートをすると現在バグります．:</strong>
     <%= form.label :post_image%>
     <%= form.file_field :post_image%>
     <%= form.hidden_field :post_image_cache %>
