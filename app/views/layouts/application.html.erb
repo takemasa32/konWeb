@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KonWeb</title>
+    <title>島大軽音部</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+<!-- jQuery（またはPopper.js）を読み込む -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap JavaScriptを読み込む -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <% if mobile_device? %>
+      <%= render 'shared/header' %>
+      <!--<main class="container mx-auto mt-5 px-3 flex">-->
+        <%= yield %>
+      </main>
+    <% else %>
+      <!-- PC用の表示 -->
+      <%= render 'shared/header' %>
+      <main class="container mx-auto mt-5 px-3 flex">
+        <%= yield %>
+      </main>
+    <% end %>
+
   </body>
 </html>

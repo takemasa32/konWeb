@@ -1,0 +1,14 @@
+{
+  "name": "konWeb",
+  "version": "1.0.0",
+  "description": "サイト作りたい",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kataoka take",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}

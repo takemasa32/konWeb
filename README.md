@@ -22,3 +22,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+- 更新方法
+
+```
+rake assets:precompile RAILS_ENV=development
+rake unicorn:stop && rake unicorn:start
+```
+rails g scaffold blogs title:string body:string category:string user:strings
