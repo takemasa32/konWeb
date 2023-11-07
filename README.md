@@ -27,6 +27,7 @@ Things you may want to cover:
 - 更新方法
 
 ```
+rake db:migrate RAILS_ENV=development
 rake assets:precompile RAILS_ENV=development
 rake unicorn:stop && rake unicorn:start
 ```

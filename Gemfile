@@ -69,6 +69,9 @@ group :development do
 
   gem 'bootstrap', '~> 4.3.1'
   gem 'jquery-rails'
+
+  gem 'carrierwave'
+  gem 'mini_magick'
 end
 
 group :test do
