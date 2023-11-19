@@ -2,11 +2,11 @@
   <h1 class="mb-4">ログイン</h1>
 
   <%= form_with model: @session, local: true, html: { class: 'needs-validation', novalidate: '' } do |form| %>
-    <% if flash[:danger] %>
-      <div class="alert alert-danger">
-        <%= flash[:danger] %>
-      </div>
-    <% end %>
+  <% if flash[:danger] || flash.now[:danger] %>
+    <div class="alert alert-danger">
+      <%= flash[:danger] || flash.now[:danger] %>
+    </div>
+  <% end %>
 
     <div class="mb-3">
       <%= form.label :email, 'メールアドレス', class: 'form-label' %>
