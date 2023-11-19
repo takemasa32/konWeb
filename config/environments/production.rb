@@ -82,6 +82,9 @@ Rails.application.configure do
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
+  # sassc-railsとtailwindcss-railsが干渉のため対処　https://qiita.com/tashua314/items/97c9addc26bb20bf8889.
+  config.assets.css_compressor = nil
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
