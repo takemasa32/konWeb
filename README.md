@@ -35,17 +35,18 @@ export RAILS_ENV=production
 
 - 更新方法
 
-Dev
-```
-rake db:migrate RAILS_ENV=development
-rake assets:precompile RAILS_ENV=development
-rake unicorn:stop && rake unicorn:start
-```
 
-Production
+本番環境
 ```
 rake db:migrate RAILS_ENV=production
 rake assets:precompile RAILS_ENV=production
+rake unicorn:stop && rake unicorn:start
+```
+
+開発環境
+```
+rake db:migrate RAILS_ENV=development
+rake assets:precompile RAILS_ENV=development
 rake unicorn:stop && rake unicorn:start
 ```
 
