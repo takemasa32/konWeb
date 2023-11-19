@@ -16,7 +16,8 @@
                 <%= @blog.title %>
               </p>
               <p class="font-light text-gray-400 dark-text-gray-300 text-md">
-                <%= @blog.body %>
+                <%=safe_join(@blog.body.split("\n"),tag(:br))%>
+                <!-- ここで改行を反映させるために，split("\n")で改行コードを区切りとして配列に分割し，safe_joinで改行コードを反映させる -->
               </p>
               <div class="flex items-center mt-4">
                 <div class="flex flex-col justify-between ml-4 text-sm">

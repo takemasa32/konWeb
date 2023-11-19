@@ -6,7 +6,8 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Body:</strong>
-    <%= blog.body %>
+    <%=safe_join(blog.body.split("\n"),tag(:br))%>
+    <!-- ここで改行を反映させるために，split("\n")で改行コードを区切りとして配列に分割し，safe_joinで改行コードを反映させる -->
   </p>
 
   <p class="my-5">
