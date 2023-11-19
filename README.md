@@ -26,12 +26,26 @@ Things you may want to cover:
 
 * ...
 
+- 環境の切り替え
+```
+export RAILS_ENV=development
+export RAILS_ENV=production
+```
+
 
 - 更新方法
 
+Dev
 ```
 rake db:migrate RAILS_ENV=development
 rake assets:precompile RAILS_ENV=development
+rake unicorn:stop && rake unicorn:start
+```
+
+Production
+```
+rake db:migrate RAILS_ENV=production
+rake assets:precompile RAILS_ENV=production
 rake unicorn:stop && rake unicorn:start
 ```
 
