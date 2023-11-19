@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
-
+  before_action :require_login
   # GET /blogs or /blogs.json
   def index
   @blogs = Blog.order(created_at: :desc)
@@ -64,8 +64,8 @@ class BlogsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-def blog_params
-  params.require(:blog).permit(:title, :body, :category, :user, :post_image, :image_cache)
-end
+  def blog_params
+    params.require(:blog).permit(:title, :body, :category, :user, :post_image, :image_cache)
+  end
     
 end

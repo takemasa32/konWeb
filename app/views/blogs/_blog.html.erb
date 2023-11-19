@@ -28,7 +28,7 @@
     <%= blog.image_cache %>
   </p>
 
-  <%= image_tag blog.post_image.url if blog.post_image.present? %>
+  <%= image_tag blog.post_image.url, size: "300x300" if blog.post_image.present? %>
 
   <% if action_name != "show" %>
     <%= link_to "Show this blog", blog, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

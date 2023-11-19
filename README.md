@@ -61,3 +61,6 @@ https://qiita.com/Shuhei_Nakada/items/05621028ff5aa78e8ad8
 
 画像系
 https://qiita.com/mmaumtjgj/items/509eed8e52ae53c4b41a
+
+認証系
+https://autovice.jp/articles/168
