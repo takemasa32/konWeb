@@ -51,3 +51,12 @@ rake unicorn:stop && rake unicorn:start
 
 - 行ったmigration
 rails g scaffold blogs title:string body:string category:string user:strings
+
+
+
+参考
+実行環境系
+https://qiita.com/Shuhei_Nakada/items/05621028ff5aa78e8ad8
+
+画像系
+https://qiita.com/mmaumtjgj/items/509eed8e52ae53c4b41a

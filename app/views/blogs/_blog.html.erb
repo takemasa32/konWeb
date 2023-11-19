@@ -19,10 +19,15 @@
     <%= blog.user %>
   </p>
   <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-
+    <strong class="block font-medium mb-1">ImagePath:</strong>
+    <%= blog.post_image %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">image_cache:</strong>
+    <%= blog.image_cache %>
   </p>
 
+  <%= image_tag blog.post_image.url if blog.post_image.present? %>
 
   <% if action_name != "show" %>
     <%= link_to "Show this blog", blog, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
