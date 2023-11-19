@@ -14,7 +14,7 @@
             <div id="<%= dom_id blog %>" class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80">
                 <%= link_to custom_blog_path(blog), class: "block w-full h-full" do %>
                 <div class="block w-full h-full">
-
+                    <%= image_tag(blog.post_image.present? ? blog.post_image.url : "blog/TeienStage.jpg", alt: "blog photo", class: "object-cover w-full", style: "object-position: center; height: 80px; filter: blur(20px);") %>
                     <div class="w-full p-4 bg-white dark-bg-gray-800">
                     <p class="font-medium text-indigo-500 text-md">
                         <%= blog.category %>
