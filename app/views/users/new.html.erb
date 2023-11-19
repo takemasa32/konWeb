@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <h1 class="mb-4">ユーザー登録</h1>
+
+  <%= form_with model: @user, url: signup_path, local: true, html: { class: 'needs-validation', novalidate: '' } do |form| %>
+    <% if @user.errors.any? %>
+      <div class="alert alert-danger">
+        <strong><%= @user.errors.count %>個のエラーがあります。</strong>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :email, 'メールアドレス', class: 'form-label' %>
+      <%= form.email_field :email, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :password, 'パスワード', class: 'form-label' %>
+      <%= form.password_field :password, class: 'form-control' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :password_confirmation, 'パスワード(確認)', class: 'form-label' %>
+      <%= form.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+
+    <%= form.submit '登録', class: 'btn btn-primary' %>
+  <% end %>
+</div>
