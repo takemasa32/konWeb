@@ -1,7 +1,7 @@
 
 class ImageUploader < CarrierWave::Uploader::Base 
   include CarrierWave::MiniMagick
-  process resize_to_fit: [400, 200]
+  process resize_to_fit: [1500, 1500]
   storage :file
   
 #アップロードした画像の表示
@@ -18,12 +18,12 @@ class ImageUploader < CarrierWave::Uploader::Base
       %w(jpg jpeg gif png)
     end
 
-  version :thumb do 
-   process resize_to_fit: [200, 200] 
-  end 
+#  version :thumb do 
+#   process resize_to_fit: [200, 200] 
+#  end 
 
-  version :thumb50 do 
-    process resize_to_fit: [100, 100] 
+  version :thumb100 do 
+    process resize_to_fit: [200, 200] 
   end 
 
 end

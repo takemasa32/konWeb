@@ -3,15 +3,11 @@
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
-    
-        <div class="mx-auto md:w-2/3 w-full flex">
+    <div class="mx-auto md:w-4/5 w-full flex">
       <div class="mx-auto">
-        <% if notice.present? %>
-          <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-        <% end %>
         <div class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer">
           <div class="block w-full h-full">
-            <%= image_tag "blog/TeienStage.jpg", alt: "blog photo", class: "object-cover w-full " %>
+            <%= image_tag(@blog.post_image.present? ? @blog.post_image.url : "blog/TeienStage.jpg", alt: "blog photo", class: "object-cover w-full") %>
             <div class="w-full p-4 bg-white dark-bg-gray-800">
               <p class="font-medium text-indigo-500 text-md">
                 <%= @blog.category %>

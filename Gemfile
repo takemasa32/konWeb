@@ -50,6 +50,13 @@ gem "bootsnap", require: false
 
 gem 'unicorn'
 
+gem 'tailwindcss-rails'
+
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -65,13 +72,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'tailwindcss-rails'
 
-  gem 'bootstrap', '~> 4.3.1'
-  gem 'jquery-rails'
-
-  gem 'carrierwave'
-  gem 'mini_magick'
 end
 
 group :test do
