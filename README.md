@@ -34,4 +34,6 @@ rake db:migrate RAILS_ENV=development
 rake assets:precompile RAILS_ENV=development
 rake unicorn:stop && rake unicorn:start
 ```
+
+- 行ったmigration
 rails g scaffold blogs title:string body:string category:string user:strings
