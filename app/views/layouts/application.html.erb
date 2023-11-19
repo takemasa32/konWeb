@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>島大軽音部</title>
+    <title>島根大学 軽音部</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,18 +21,10 @@
   </head>
 
   <body>
-    <% if mobile_device? %>
-      <%= render 'shared/header' %>
-      <!--<main class="container mx-auto mt-5 px-3 flex">-->
-        <%= yield %>
-      </main>
-    <% else %>
-      <!-- PC用の表示 -->
-      <%= render 'shared/header' %>
-      <main class="container mx-auto mt-5 px-3 flex">
-        <%= yield %>
-      </main>
-    <% end %>
-
-  </body>
+<body>
+  <%= render 'shared/header' %>
+  <main class="<%= 'container mx-auto mt-5 px-3 flex' unless mobile_device? %>">
+    <%= yield %>
+  </main>
+</body>
 </html>
