@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :blogs
   
-  get "home/top" => "images#top"
-  get 'home/index' => 'home#index'
+  get "top" => "home#top"
+  get 'posts' => 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

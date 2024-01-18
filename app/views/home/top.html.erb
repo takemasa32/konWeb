@@ -1,11 +1,3 @@
-<script>
-    //ローディング画面の表示
-    $(window).on('load',function(){
-    $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
-    $("#loading_box").delay(1200).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
-    });
-</script>
-
 <style>
         
         /*
@@ -41,7 +33,8 @@
         line-height: 2.0;
         padding: 2em 0;
     }
-        // アニメーション
+
+    /* アニメーション */
         .animation_loading {
         animation: equalizer_loading 7000ms infinite;
         animation-iteration-count: 10;
@@ -84,61 +77,41 @@
 </style>
 
 <div id="loading">
-  <div id="loading_box">
-    <div class="loading-one animation_loading">
-      <p class="loading-txt">島根大学 軽音楽部</p>
+    <div id="loading_box">
+        <div class="loading-one animation_loading">
+            <p class="loading-txt">島根大学 軽音楽部</p>
+            <!--<p class="missLoading-txt">リロードしてください．</p>-->
+        </div>
     </div>
-  </div>
 </div>
 
+<script>
+    //ローディング画面の表示
+    $(window).on('load',function(){
+    $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+    $("#loading_box").delay(1200).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
+    });
+</script>
 <%# 
     トップページ
 %> 
-   <div class="w-full p-12 bg-white">
-        <div class="flex items-end justify-between mb-12 header">
-            <div class="title">
-                <p class="mb-2 text-4xl font-bold text-gray-800">
-                まとめ
-                </p>
-                <p class="text-2xl font-light text-gray-400">
-                最新の記事一覧です
-                </p>
-            </div>
-        </div>
 
-<!--        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
-            <% @blogs.reverse_each do |blog| %>
-            <div id="<%= dom_id blog %>" class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80">
-                <%= link_to custom_blog_path(blog), class: "block w-full h-full" do %>
-                <div class="block w-full h-full">
-                    <%= image_tag(blog.post_image.present? ? blog.post_image.url : "blog/TeienStage.jpg", alt: "blog photo", class: "object-cover w-full", style: "object-position: center; height: 60px; filter: blur(20px);") %>
-                    <div class="w-full p-4 bg-white dark-bg-gray-800">
-                    <p class="font-medium text-indigo-500 text-md">
-                        <%= blog.category %>
-                    </p>
-                    <p class="mb-2 text-xl font-medium text-gray-800 dark-text-white">
-                        <%= blog.title %>
-                    </p>
-                    <p class="font-light text-gray-400 dark-text-gray-300 text-md">
-                        <%= blog.body.slice(0, 16) %>‥‥
-                    </p>
-                    <div class="flex items-center mt-1">
-                        <div class="flex flex-col justify-between ml-4 text-sm">
-                        <p class="text-gray-800 dark-text-white mb-1">
-                            <%= blog.user %>
-                        </p>
-                        <p class="text-gray-400 dark-text-gray-300">
-                            <%= blog.created_at.strftime('%Y年%m月%d日 %H:%M') %>
-                        </p>
-                        </div>
-                    </div>
-                    </div>
+<div>
+    <div class="bg-white py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+            <div class="mx-auto flex max-w-xl flex-col items-center text-center">
+                <p class="mb-4 font-semibold text-indigo-500 md:mb-6 md:text-lg xl:text-xl">
+                    ようこそ！島根大学 軽音楽部へ！
+                </p>
+
+                <h1 class="mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">
+                    ぜひ私達とともに音楽を楽しみましょう！
+                </h1>
+
+                    <div class="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
+                    <%= link_to "活動記録を見る", posts_path, class: "btn btn-secondary inline-block rounded-lg px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base" %>
                 </div>
-                <% end %>
             </div>
-            <% end %>
         </div>
-        -->
-
     </div>
-</body>
+</div>
