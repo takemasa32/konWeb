@@ -7,7 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
+          <%= link_to "Top", root_path, data: {"turbolinks" => false}, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Contents", home_index_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Twitter", "https://twitter.com/shimaneU_keion", class: "nav-link" %>

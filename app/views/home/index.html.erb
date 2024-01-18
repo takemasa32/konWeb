@@ -1,7 +1,7 @@
    <div class="w-full p-12 bg-white">
         <div class="flex items-end justify-between mb-12 header">
             <div class="title">
-                <p class="mb-4 text-4xl font-bold text-gray-800">
+                <p class="mb-2 text-4xl font-bold text-gray-800">
                 まとめ
                 </p>
                 <p class="text-2xl font-light text-gray-400">
@@ -14,7 +14,7 @@
             <div id="<%= dom_id blog %>" class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80">
                 <%= link_to custom_blog_path(blog), class: "block w-full h-full" do %>
                 <div class="block w-full h-full">
-                    <%= image_tag(blog.post_image.present? ? blog.post_image.url : "blog/TeienStage.jpg", alt: "blog photo", class: "object-cover w-full", style: "object-position: center; height: 80px; filter: blur(20px);") %>
+                    <%= image_tag(blog.post_image.present? ? blog.post_image.url : "blog/TeienStage.jpg", alt: "blog photo", class: "object-cover w-full", style: "object-position: center; height: 60px; filter: blur(20px);") %>
                     <div class="w-full p-4 bg-white dark-bg-gray-800">
                     <p class="font-medium text-indigo-500 text-md">
                         <%= blog.category %>
@@ -23,15 +23,15 @@
                         <%= blog.title %>
                     </p>
                     <p class="font-light text-gray-400 dark-text-gray-300 text-md">
-                        <%= blog.body.slice(0, 8) %>‥‥
+                        <%= blog.body.slice(0, 16) %>‥‥
                     </p>
-                    <div class="flex items-center mt-4">
+                    <div class="flex items-center mt-1">
                         <div class="flex flex-col justify-between ml-4 text-sm">
-                        <p class="text-gray-800 dark-text-white">
+                        <p class="text-gray-800 dark-text-white mb-1">
                             <%= blog.user %>
                         </p>
                         <p class="text-gray-400 dark-text-gray-300">
-                            <%= blog.created_at %>
+                            <%= blog.created_at.strftime('%Y年%m月%d日 %H:%M') %>
                         </p>
                         </div>
                     </div>
@@ -39,42 +39,6 @@
                 </div>
                 <% end %>
             </div>
-            <% end %>
-
-
-
-
-
-
-
-
-            <% (1..6).each do |index| %>
-                <div class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80">
-                    <a href="#" class="block w-full h-full">
-                        <div class="w-full p-4 bg-white dark-bg-gray-800">
-                            <p class="font-medium text-indigo-500 text-md">
-                                template
-                            </p>
-                            <p class="mb-2 text-xl font-medium text-gray-800 dark-text-white">
-                                Work at home
-                            </p>
-                            <p class="font-light text-gray-400 dark-text-gray-300 text-md">
-                                You can't touch me.
-                                Work at home, remote, is the new age of the job, every person can work at home....
-                            </p>
-                            <div class="flex items-center mt-4">
-                                <div class="flex flex-col justify-between ml-4 text-sm">
-                                    <p class="text-gray-800 dark-text-white">
-                                        Jean Jacques
-                                    </p>
-                                    <p class="text-gray-400 dark-text-gray-300">
-                                        20 mars 2029 - 6 min read
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
             <% end %>
         </div>
     </div>
