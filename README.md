@@ -35,6 +35,10 @@ export RAILS_ENV=production
 
 - 更新方法
 
+テスト
+``````
+rails s -b 0.0.0.0
+```
 
 本番環境
 ```
@@ -45,9 +49,9 @@ rake unicorn:stop && rake unicorn:start
 
 開発環境
 ```
-rake db:migrate RAILS_ENV=development
-rake assets:precompile RAILS_ENV=development
-rake unicorn:stop && rake unicorn:start
+`rake db:migrate RAILS_ENV=development
+`rake assets:precompile RAILS_ENV=development
+`rake unicorn:stop && rake unicorn:start
 ```
 
 - 行ったmigration

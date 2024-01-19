@@ -25,8 +25,9 @@
   <body>
     <%= render 'shared/header' %>
     
-    <main class="<%= 'container mx-auto mt-5 px-3 flex' unless mobile_device? %>">
+    <main class="">
       <%= yield %>
     </main>
+      <%= render 'shared/footer' %>
   </body>
 </html>
