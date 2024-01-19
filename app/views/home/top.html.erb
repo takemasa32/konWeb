@@ -1,4 +1,13 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <style>
+    .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
         
         /*
         Loadingページ用
@@ -88,8 +97,8 @@
 <script>
     //ローディング画面の表示
     $(window).on('load',function(){
-    $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
-    $("#loading_box").delay(1200).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
+    $("#loading").delay(1000).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+    $("#loading_box").delay(800).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
     });
 </script>
 <%# 
@@ -105,12 +114,71 @@
                 </p>
 
                 <h1 class="mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">
-                    ぜひ私達とともに音楽を楽しみましょう！
+                    私達と共に<br>音楽を楽しみましょう！
                 </h1>
 
                     <div class="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
                     <%= link_to "活動記録を見る", posts_path, class: "btn btn-secondary inline-block rounded-lg px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base" %>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+            <!-- text - start -->
+            <div class="mb-10 md:mb-16">
+            <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">島根大学 軽音楽部</h2>
+
+            <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">私達はこんな団体です！</p>
+            </div>
+            <!-- text - end -->
+
+            <div class="grid gap-4 sm:grid-cols-2 md:gap-8 xl:grid-cols-3">
+            <!-- feature - start -->
+                <div class="flex divide-x rounded-lg border bg-gray-50">
+                    <div class="flex items-center p-2 text-indigo-500 md:p-4 ">
+                        <span class="material-symbols-outlined">
+                            pediatrics
+                        </span>
+                    </div>
+
+                    <div class="p-4 md:p-6">
+                        <h3 class="mb-2 text-lg font-semibold md:text-xl">初心者歓迎</h3>
+                        <p class="text-gray-500">実際部員の中でもほぼ半数が初心者です．<br>実際のバンド活動を通じて一緒に成長していきましょう！</p>
+                    </div>
+                </div>
+            <!-- feature - end -->
+
+            <!-- feature - start -->
+                <div class="flex divide-x rounded-lg border bg-gray-50">
+                    <div class="flex items-center p-2 text-indigo-500 md:p-4 ">
+                        <span class="material-symbols-outlined">
+                            payments
+                        </span>
+                    </div>
+
+                    <div class="p-4 md:p-6">
+                        <h3 class="mb-2 text-lg font-semibold md:text-xl">設備が充実</h3>
+                        <p class="text-gray-500">大学内にアンプやドラムセットなど練習できる環境が揃っています．<br>わざわざ外部のスタジオを借りなくても練習が可能です！</p>
+                    </div>
+                </div>
+            <!-- feature - end -->
+
+            <!-- feature - start -->
+                <div class="flex divide-x rounded-lg border bg-gray-50">
+                    <div class="flex items-center p-2 text-indigo-500 md:p-4 ">
+                        <span class="material-symbols-outlined">
+                            hub
+                        </span>
+                    </div>
+
+                    <div class="p-4 md:p-6">
+                        <h3 class="mb-2 text-lg font-semibold md:text-xl">部員が多い</h3>
+                        <p class="text-gray-500">”実際に活動をしている”部員数がとても多い部活です．<br>各学部内外大学内で友達を作るならもってこいです！！</p>
+                    </div>
+                </div>
+            <!-- feature - end -->
             </div>
         </div>
     </div>
