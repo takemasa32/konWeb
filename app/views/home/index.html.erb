@@ -1,3 +1,46 @@
+<style>
+    .link {
+        text-decoration: none;
+        color: black ; 
+    }
+    .link:hover {
+        text-decoration: none;
+        color: black ; 
+    }
+
+</style>
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="mx-auto max-w-screen-xl px-4 md:px-8">
+        <!-- text - start -->
+        <div class="mb-10 md:mb-16">
+        <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">Contents</h2>
+
+        <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">最近の活動内容やイベントなどはこちらから！</p>
+        </div>
+        <!-- text - end -->
+
+        <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-2 xl:grid-cols-2 xl:gap-8">
+            <% @blogs.reverse_each do |blog| %>
+                <%= render 'shared/blog_card', blog: blog %>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    <div class="w-full p-12 bg-white">
         <div class="flex items-end justify-between mb-12 header">
             <div class="title">

@@ -1,0 +1,19 @@
+<div class="flex flex-col items-center overflow-hidden rounded-lg border md:flex-row">
+    <%= link_to custom_blog_path(blog), class: "group relative block h-48 w-full shrink-0 self-start overflow-hidden bg-gray-100 md:h-full md:w-32 lg:w-48" do %>
+        <%= image_tag(blog.post_image.present? ? blog.post_image.url : "blog/TeienStage.jpg", loading: "lazy", alt: "#{blog.title}の画像", class: "absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110") %>
+    <% end %>
+
+    <div class="flex flex-col gap-2 p-4 lg:p-6">
+        <span class="text-sm text-gray-400"><%= blog.created_at.strftime('%B %d, %Y') %></span>
+
+        <h2 class="text-xl font-bold text-gray-800">
+        <%= link_to blog.title, custom_blog_path(blog), class: "transition duration-100 hover:text-indigo-500 active:text-indigo-600 link" %>
+        </h2>
+
+        <p class="text-gray-500"><%= blog.body.truncate(100) %></p>
+
+        <div>
+            <%= link_to 'Read more', custom_blog_path(blog), class: "font-semibold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700" %>
+        </div>
+    </div>
+</div>

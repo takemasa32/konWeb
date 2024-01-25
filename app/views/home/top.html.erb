@@ -44,31 +44,32 @@
     }
 
     /* アニメーション */
-        .animation_loading {
-        animation: equalizer_loading 7000ms infinite;
-        animation-iteration-count: 10;
-        }
-        @keyframes equalizer_loading {
+    
+    .animation_loading {
+    animation: equalizer_loading 7000ms infinite;
+    animation-iteration-count: 10;
+    }
+    @keyframes equalizer_loading {
         0% {
             width: 70%;
         }
         10% {
-            width: 50%;
+            width: 100%;
         }
         20% {
-            width: 100%;
+            width: 90%;
         }
         30% {
             width: 70%;
         }
         40% {
-            width: 50%;
+            width: 80%;
         }
         50% {
             width: 70%;
         }
         60% {
-            width: 50%;
+            width: 60%;
         }
         70% {
             width: 100%;
@@ -82,7 +83,33 @@
         100% {
             width: 70%;
         }
-    }
+            }
+        .animation .anm_mod {
+            opacity: 0;
+            transform: translate3d(0, 100%, 0);
+            transition: all 1s ease;
+        }
+
+        .animation .anm_mod.left {
+            transform: translate3d(-100%, 0, 0);
+        }
+
+        .animation .anm_mod.right {
+            transform: translate3d(100%, 0, 0);
+        }
+
+        .animation .anm_mod.delay {
+            transition: all 2s ease;
+        }
+
+        .animation .anm_mod.fast {
+            transition: all 0.8s ease;
+        }
+
+        .animation .anm_mod.active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
 </style>
 
 <div id="loading">
@@ -105,7 +132,7 @@
     トップページ
 %> 
 
-<div>
+<div class="animation">
     <div class="bg-white py-6 sm:py-8 lg:py-12">
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
             <div class="mx-auto flex max-w-xl flex-col items-center text-center">
@@ -113,14 +140,14 @@
                     はじめまして！島根大学 軽音楽部です！
                 </p>
 
-                <h1 class="mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">
+                <h1 class="anm_mod full mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">
                     共に音楽を<br>楽しみましょう！
                 </h1>
 
                     <div class="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
-                    <%= link_to "活動記録を見る", posts_path, class: "btn btn-secondary inline-block rounded-lg px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base" %>
+                    <%= link_to "活動記録を見る", posts_path, class: "anm_mod left btn btn-secondary inline-block rounded-lg px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base" %>
 
-                    <%= link_to "SNSを確認する", sns_path, class: "btn btn-secondary inline-block rounded-lg px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base" %>
+                    <%= link_to "SNSを確認する", sns_path, class: "anm_mod right btn btn-secondary inline-block rounded-lg px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base" %>
                 </div>
             </div>
         </div>
@@ -129,16 +156,16 @@
     <div class="bg-white py-6 sm:py-8 lg:py-12">
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
             <!-- text - start -->
-            <div class="mb-10 md:mb-16">
-            <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">島根大学<br>軽音楽部の特徴</h2>
+            <div class=" mb-10 md:mb-16">
+                <h2 class="anm_mod left full fast mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">島根大学<br>軽音楽部の特徴</h2>
 
-            <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">私達はこんな団体です！</p>
+                <p class="anm_mod left full  mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">私達はこんな団体です！</p>
             </div>
             <!-- text - end -->
 
             <div class="grid gap-4 sm:grid-cols-2 md:gap-8 xl:grid-cols-3">
             <!-- feature - start -->
-                <div class="flex divide-x rounded-lg border bg-gray-50">
+                <div class="anm_mod left delay flex divide-x rounded-lg border bg-gray-50">
                     <div class="flex items-center p-2 text-indigo-500 md:p-4 ">
                         <span class="material-symbols-outlined h-6 w-6 md:h-8 md:w-8">
                             pediatrics
@@ -153,7 +180,7 @@
             <!-- feature - end -->
 
             <!-- feature - start -->
-                <div class="flex divide-x rounded-lg border bg-gray-50">
+                <div class="anm_mod right delay flex divide-x rounded-lg border bg-gray-50">
                     <div class="flex items-center p-2 text-indigo-500 md:p-4 ">
                         <span class="material-symbols-outlined">
                             payments
@@ -168,7 +195,7 @@
             <!-- feature - end -->
 
             <!-- feature - start -->
-                <div class="flex divide-x rounded-lg border bg-gray-50">
+                <div class="anm_mod left delay flex divide-x rounded-lg border bg-gray-50">
                     <div class="flex items-center p-2 text-indigo-500 md:p-4 ">
                         <span class="material-symbols-outlined">
                             hub
@@ -182,7 +209,7 @@
                 </div>
             <!-- feature - end -->
             <!-- feature - start -->
-                <div class="flex divide-x rounded-lg border bg-gray-50">
+                <div class="anm_mod right delay flex divide-x rounded-lg border bg-gray-50">
                     <div class="flex items-center p-2 text-indigo-500 md:p-4 ">
                         <span class="material-symbols-outlined">
                             discover_tune
@@ -204,16 +231,16 @@
     <div class="bg-white py-6 sm:py-8 lg:py-12">
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
             <!-- text - start -->
-            <div class="mb-10 md:mb-16">
-            <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">よくある質問</h2>
+            <div class="anm_mod left fast mb-10 md:mb-16">
+                <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">よくある質問</h2>
 
-            <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">気になる疑問点について回答します！</p>
+                <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">気になる疑問点について回答します！</p>
             </div>
             <!-- text - end -->
 
-            <div class="grid gap-8 sm:grid-cols-2 sm:gap-y-10 xl:grid-cols-3">
+            <div class=" grid gap-8 sm:grid-cols-2 sm:gap-y-10 xl:grid-cols-3">
             <!-- question - start -->
-            <div class="relative rounded-lg bg-gray-100 p-5 pt-8">
+            <div class="anm_mod left delay relative rounded-lg bg-gray-100 p-5 pt-8">
                 <span class="absolute -top-4 left-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
@@ -226,7 +253,7 @@
             <!-- question - end -->
 
             <!-- question - start -->
-            <div class="relative rounded-lg bg-gray-100 p-5 pt-8">
+            <div class="anm_mod right delay relative rounded-lg bg-gray-100 p-5 pt-8">
                 <span class="absolute -top-4 left-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
@@ -239,7 +266,7 @@
             <!-- question - end -->
 
             <!-- question - start -->
-            <div class="relative rounded-lg bg-gray-100 p-5 pt-8">
+            <div class="anm_mod left delay relative rounded-lg bg-gray-100 p-5 pt-8">
                 <span class="absolute -top-4 left-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
@@ -252,7 +279,7 @@
             <!-- question - end -->
 
             <!-- question - start -->
-            <div class="relative rounded-lg bg-gray-100 p-5 pt-8">
+            <div class="anm_mod right delay relative rounded-lg bg-gray-100 p-5 pt-8">
                 <span class="absolute -top-4 left-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
@@ -268,18 +295,39 @@
     </div> 
     
     <!-- SNS紹介 -->
-        <div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="bg-white py-6 sm:py-8 lg:py-12">
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
             <div class="mx-auto flex max-w-xl flex-col items-center text-center">
 
-                <h1 class="mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">
+                <h1 class="anm_mod full mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">
                     次は部室で会いましょう！
                 </h1>
 
-                    <div class="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
-                        <%= render 'home/sns' %>
+                <div class="anm_mod full flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
+                    <%= render 'home/sns' %>
                 </div>
             </div>
         </div>
     </div>
+
+ </div>
 </div>
+
+<script>
+    $(window).scroll(function() {
+        // .animation 配下の　.anm_modを対象に見る
+        $(".animation .anm_mod").each(function() {
+            // スクロール中、各UIパーツ　.anm_modがブラウザ画面内に入ったら activeクラスが付与される
+            const position = $(this).offset().top;
+            const scroll = $(window).scrollTop();
+            const windowHeight = $(window).height();
+            if (scroll > position - windowHeight) {
+                $(this).addClass("active");
+            }
+        // スクロール中、トップ画面付近まで戻ったら activeクラスを解除 ＝ 何度でもスクロールアニメが表現可能。一度しかアニメーションしたく無ければここを削除してください。
+            // if (scroll < 5) {
+            //     $(this).removeClass("active");
+            // }
+            });
+        });
+</script>

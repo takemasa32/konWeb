@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>島根大学 軽音部</title>
+    <title>島根大学 軽音楽部</title>
+    <meta name="description" content="はじめまして！島根大学軽音楽部です．ぜひ一緒に演奏を楽しみませんか？">
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WLFZZK3DL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5WLFZZK3DL');
+    </script>
     
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
