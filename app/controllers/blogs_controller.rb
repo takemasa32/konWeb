@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :require_login
   # GET /blogs or /blogs.json
   def index
-    @blogs = Blog.order(created_at: :desc).page(params[:page]).per(10)
+    @blogs = Blog.order(created_at: :desc).page(params[:page]).per(6)
     # ブログ記事を取得し、ページネーションを適用するコード
 
     # 戻るボタンの先を指定するためのコード

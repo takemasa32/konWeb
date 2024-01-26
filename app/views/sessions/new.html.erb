@@ -1,5 +1,11 @@
-
-
+<!-- ログイン画面 -->
+<!-- ログインに失敗した場合 -->
+<!-- flash[:danger] は sessions_controller.rb で定義されている -->
+  <% if flash[:danger] %>
+    <% if alert.present? %>
+      <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+    <% end %>
+  <% end %>
 <div class="bg-white py-6 sm:py-8 lg:py-12">
   <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
     <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">ログイン</h2>
@@ -20,7 +26,7 @@
       </div>
 
       <div class="flex items-center justify-center bg-gray-100 p-4">
-        <p class="text-center text-sm text-gray-500">サイト管理のためのログインです．<br>詳細については管理者に確認してください．</p>
+        <p class="text-center text-sm text-gray-500">サイト管理のためのログインです．<br>詳細については管理者に確認してください．<br>また,ログインの可否は表示されません.</p>
       </div>
     <% end %>
   </div>

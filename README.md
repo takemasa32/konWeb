@@ -41,10 +41,13 @@ rails s -b 0.0.0.0
 ```
 
 本番環境
+
+rake db:migrate RAILS_ENV=production && rake assets:precompile RAILS_ENV=production && rake unicorn:stop && rake unicorn:start
+
 ```
-rake db:migrate RAILS_ENV=production
-rake assets:precompile RAILS_ENV=production
-rake unicorn:stop && rake unicorn:start
+`rake db:migrate RAILS_ENV=production
+`rake assets:precompile RAILS_ENV=production
+`rake unicorn:stop && rake unicorn:start
 ```
 
 開発環境

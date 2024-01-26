@@ -22,7 +22,9 @@
             <% @blogs.each do |blog| %>
                 <%= render 'shared/blog_card', blog: blog, truncate_length: 50 %>
             <% end %>
-            <%= paginate @blogs %>
+            <div class="flex justify-center link">
+                <%= paginate @blogs %>
+            </div>
         </div>
     </div>
 </div>
