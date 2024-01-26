@@ -1,0 +1,28 @@
+<!-- app/views/blogs/_blog_page.html.erb -->
+
+<div class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer mx-auto">
+  <div class="block w-full h-full">
+    <%= image_tag(blog.post_image.present? ? blog.post_image.url : "blog/TeienStage.jpg", alt: "blog photo", class: "object-cover w-full") %>
+    <div class="w-full p-4 bg-white dark-bg-gray-800">
+      <p class="font-medium text-indigo-500 text-md mb-1">
+        <%= blog.category %>
+      </p>
+      <p class="mb-2 text-xl font-medium text-gray-800 dark-text-white">
+        <%= blog.title %>
+      </p>
+      <p class="font-light text-gray-400 dark-text-gray-300 text-md">
+        <%=safe_join(blog.body.split("\n"),tag(:br))%>
+      </p>
+      <div class="flex items-center mt-4">
+        <div class="flex flex-col justify-between ml-4 text-sm">
+          <p class="text-gray-800 dark-text-white mb-0">
+            <%= blog.user %>
+          </p>
+          <p class="text-gray-400 dark-text-gray-300">
+            <%= blog.created_at %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
