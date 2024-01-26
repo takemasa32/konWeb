@@ -1,0 +1,36 @@
+ja:
+  notices:
+    updated: "ブログは正常に更新されました。"
+  activerecord:
+    models:
+      blog: 投稿
+    attributes:
+      blog:
+        title: タイトル
+        body: 本文
+        category: カテゴリー
+        user: ユーザー名
+    errors:
+      template:
+        header:
+          one: "%{model}の保存中にエラーが発生しました"
+          other: "%{model}の保存中に%{count}つのエラーが発生しました"
+      models:
+        blog:
+          attributes:
+            title:
+              blank: "は必須です"
+              too_short: "は%{count}文字以上で入力してください"
+              too_long: "は%{count}文字以下で入力してください"
+            body:
+              blank: "は必須です"
+              too_short: "は%{count}文字以上で入力してください"
+              too_long: "は%{count}文字以下で入力してください"
+            category:
+              blank: "は必須です"
+              too_short: "は%{count}文字以上で入力してください"
+              too_long: "は%{count}文字以下で入力してください"
+            user:
+              blank: "は必須です"
+              too_short: "は%{count}文字以上で入力してください"
+              too_long: "は%{count}文字以下で入力してください"

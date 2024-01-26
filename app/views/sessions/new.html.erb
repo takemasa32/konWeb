@@ -1,23 +1,27 @@
-<div class="container mt-5">
-  <h1 class="mb-4">ログイン</h1>
 
-  <%= form_with model: @session, local: true, html: { class: 'needs-validation', novalidate: '' } do |form| %>
-  <% if flash[:danger] || flash.now[:danger] %>
-    <div class="alert alert-danger">
-      <%= flash[:danger] || flash.now[:danger] %>
-    </div>
-  <% end %>
 
-    <div class="mb-3">
-      <%= form.label :email, 'メールアドレス', class: 'form-label' %>
-      <%= form.email_field :email, class: 'form-control' %>
-    </div>
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">ログイン</h2>
 
-    <div class="mb-3">
-      <%= form.label :password, 'パスワード', class: 'form-label' %>
-      <%= form.password_field :password, class: 'form-control' %>
-    </div>
+    <%= form_with model: @session, local: true, html: { class: 'mx-auto max-w-lg rounded-lg border' } do |form| %>
+      <div class="flex flex-col gap-4 p-4 md:p-8">
+        <div>
+          <%= form.label :email, 'メールアドレス', class: 'mb-2 inline-block text-sm text-gray-800 sm:text-base' %>
+          <%= form.email_field :email, class: 'w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring' %>
+        </div>
 
-    <%= form.submit 'ログイン', class: 'btn btn-primary' %>
-  <% end %>
+        <div>
+          <%= form.label :password, 'パスワード', class: 'mb-2 inline-block text-sm text-gray-800 sm:text-base' %>
+          <%= form.password_field :password, class: 'w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring' %>
+        </div>
+
+        <%= form.submit 'ログイン', class: 'block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base' %>
+      </div>
+
+      <div class="flex items-center justify-center bg-gray-100 p-4">
+        <p class="text-center text-sm text-gray-500">サイト管理のためのログインです．<br>詳細については管理者に確認してください．</p>
+      </div>
+    <% end %>
+  </div>
 </div>

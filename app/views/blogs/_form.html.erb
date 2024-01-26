@@ -1,44 +1,59 @@
-<%= form_with(model: blog, class: "contents") do |form| %>
-  <% if blog.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
 
-      <ul>
-        <% blog.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <div class="mb-10 md:mb-16">
+      <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">投稿画面</h2>
+      <p class="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">投稿内容を以下のフォームに入力してください。</p>
     </div>
-  <% end %>
-  <div class="flex flex-col">
-    <div>
-      <div class="my-5">
-        <%= form.label :題名 %>
-        <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
 
-      <div class="my-5">
-        <%= form.label :本文 %>
-        <%= form.text_area :body,rows: 5,  class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
+    <%= form_with(model: blog, class: "contents") do |form| %>
+      <% if blog.errors.any? %>
+        <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+          <h3 class="text-lg"><%= I18n.t('activerecord.errors.template.header', model: blog.model_name.human, count: blog.errors.count) %></h3>
+          <ul>
+            <% blog.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-      <div class="my-5">
-        <%= form.label :カテゴリー %>
-        <%= form.text_field :category, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
+      <form class="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2">
+        <div class="sm:col-span-2">
+          <%= form.label :題名, class: "mb-2 inline-block text-sm text-gray-800 sm:text-base" %>
+          <%= form.text_field :title, class: "w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
+        </div>
 
-      <div class="my-5">
-        <%= form.label :投稿者 %>
-        <%= form.text_field :user, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-      </div>
+        <div class="sm:col-span-2">
+          <%= form.label :本文, class: "mb-2 inline-block text-sm text-gray-800 sm:text-base" %>
+          <%= form.text_area :body, rows: 5, class: "h-64 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
+        </div>
 
-        <strong class="block font-medium mb-3">画像を選択しない場合には，テンプレート，もしくは先に選択した画像がアップロードされます．</strong>
-        <%= form.label :画像：%>
-        <%= form.file_field :post_image%>
-        <%= form.hidden_field :image_cache %>
-    </div>
-    <div class="inline text-center">
-      <%= form.submit class: "rounded-lg mt-2 py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-    </div>
+        <div class="sm:col-span-2">
+          <%= form.label :カテゴリー, class: "mb-2 inline-block text-sm text-gray-800 sm:text-base" %>
+          <%= form.text_field :category, class: "w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
+        </div>
+
+        <div class="sm:col-span-2">
+          <%= form.label :投稿者, class: "mb-2 inline-block text-sm text-gray-800 sm:text-base" %>
+          <%= form.text_field :user, class: "w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
+        </div>
+
+        <div class="sm:col-span-2">
+          <%= form.label :画像, class: "mb-2 inline-block text-sm text-gray-800 sm:text-base" %>
+          <%= form.file_field :post_image, class: "w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" %>
+          <%= form.hidden_field :image_cache %>
+          <div class="relative flex items-center justify-center">
+            <span class="absolute inset-x-0 h-px bg-gray-300"></span>
+            <span class="relative bg-white px-4 text-sm text-gray-400">画像を選択しない場合,テンプレートor元の画像が投稿されます.</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between sm:col-span-2 mt-3">
+          <%= form.submit "投稿", class: "inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base" %>
+          <%= link_to "一覧へ戻る", session[:last_visited_index] || root_path, class: "rounded-lg py-3 px-4 bg-gray-100 inline-block font-medium" %>
+        </div>
+      </form>
+    <% end %>
   </div>
-<% end %>
+</div>
