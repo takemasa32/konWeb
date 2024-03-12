@@ -1,81 +1,30 @@
-   <div class="w-full p-12 bg-white">
-        <div class="flex items-end justify-between mb-12 header">
-            <div class="title">
-                <p class="mb-4 text-4xl font-bold text-gray-800">
-                まとめ
-                </p>
-                <p class="text-2xl font-light text-gray-400">
-                最新の記事一覧です
-                </p>
-            </div>
+<style>
+    .link {
+        text-decoration: none;
+        color: black ; 
+    }
+    .link:hover {
+        text-decoration: none;
+        color: black ; 
+    }
+</style>
+
+<div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="mx-auto max-w-screen-xl px-4 md:px-8">
+        <!-- text - start -->
+        <div class="mb-10 md:mb-16">
+            <h2 class="anm_mod mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">Contents</h2>
+            <p class="anm_mod mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">最近の活動内容やイベントなどはこちらから！</p>
         </div>
-        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
-            <% @blogs.reverse_each do |blog| %>
-            <div id="<%= dom_id blog %>" class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80">
-                <%= link_to custom_blog_path(blog), class: "block w-full h-full" do %>
-                <div class="block w-full h-full">
-                    <%= image_tag(blog.post_image.present? ? blog.post_image.url : "blog/TeienStage.jpg", alt: "blog photo", class: "object-cover w-full", style: "object-position: center; height: 80px; filter: blur(20px);") %>
-                    <div class="w-full p-4 bg-white dark-bg-gray-800">
-                    <p class="font-medium text-indigo-500 text-md">
-                        <%= blog.category %>
-                    </p>
-                    <p class="mb-2 text-xl font-medium text-gray-800 dark-text-white">
-                        <%= blog.title %>
-                    </p>
-                    <p class="font-light text-gray-400 dark-text-gray-300 text-md">
-                        <%= blog.body.slice(0, 8) %>‥‥
-                    </p>
-                    <div class="flex items-center mt-4">
-                        <div class="flex flex-col justify-between ml-4 text-sm">
-                        <p class="text-gray-800 dark-text-white">
-                            <%= blog.user %>
-                        </p>
-                        <p class="text-gray-400 dark-text-gray-300">
-                            <%= blog.created_at %>
-                        </p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <% end %>
+        <!-- text - end -->
+
+        <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-2 xl:grid-cols-2 xl:gap-8">
+            <% @blogs.each do |blog| %>
+                <%= render 'shared/blog_card', blog: blog, truncate_length: 50 %>
+            <% end %>
+            <div class="flex justify-center link">
+                <%= paginate @blogs %>
             </div>
-            <% end %>
-
-
-
-
-
-
-
-
-            <% (1..6).each do |index| %>
-                <div class="m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80">
-                    <a href="#" class="block w-full h-full">
-                        <div class="w-full p-4 bg-white dark-bg-gray-800">
-                            <p class="font-medium text-indigo-500 text-md">
-                                template
-                            </p>
-                            <p class="mb-2 text-xl font-medium text-gray-800 dark-text-white">
-                                Work at home
-                            </p>
-                            <p class="font-light text-gray-400 dark-text-gray-300 text-md">
-                                You can't touch me.
-                                Work at home, remote, is the new age of the job, every person can work at home....
-                            </p>
-                            <div class="flex items-center mt-4">
-                                <div class="flex flex-col justify-between ml-4 text-sm">
-                                    <p class="text-gray-800 dark-text-white">
-                                        Jean Jacques
-                                    </p>
-                                    <p class="text-gray-400 dark-text-gray-300">
-                                        20 mars 2029 - 6 min read
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            <% end %>
         </div>
     </div>
-</body>
+</div>

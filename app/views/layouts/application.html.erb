@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>島根大学 軽音部</title>
+    <title>島根大学 軽音楽部</title>
+    <meta name="description" content="はじめまして！島根大学軽音楽部です．ぜひ一緒に演奏を楽しみませんか？">
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WLFZZK3DL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5WLFZZK3DL');
+    </script>
+    
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-<!-- jQuery（またはPopper.js）を読み込む -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery（またはPopper.js）を読み込む -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Bootstrap JavaScriptを読み込む -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JavaScriptを読み込む -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag('favicon.ico') %>
   </head>
 
-  <body>
-<body>
-  <%= render 'shared/header' %>
-  <main class="<%= 'container mx-auto mt-5 px-3 flex' unless mobile_device? %>">
-    <%= yield %>
-  </main>
-</body>
+  <body class="flex flex-col min-h-screen">
+    <%= render 'shared/header' %>
+
+    <main class="flex-grow">
+      <div class="flex flex-col items-center justify-center">
+        <%= yield %>
+      </div>
+    </main>
+
+    <%= render 'shared/footer' %>
+  </body>
 </html>

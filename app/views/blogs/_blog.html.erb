@@ -1,38 +1,7 @@
-<div id="<%= dom_id blog %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= blog.title %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%=safe_join(blog.body.split("\n"),tag(:br))%>
-    <!-- ここで改行を反映させるために，split("\n")で改行コードを区切りとして配列に分割し，safe_joinで改行コードを反映させる -->
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Category:</strong>
-    <%= blog.category %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= blog.user %>
-  </p>
-  <p class="my-5">
-    <strong class="block font-medium mb-1">ImagePath:</strong>
-    <%= blog.post_image %>
-  </p>
-  <p class="my-5">
-    <strong class="block font-medium mb-1">image_cache:</strong>
-    <%= blog.image_cache %>
-  </p>
-
-  <%= image_tag blog.post_image.url, size: "300x300" if blog.post_image.present? %>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this blog", blog, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this blog", edit_blog_path(blog), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+<div class="w-4/5">
+  <%= render 'shared/blog_page', blog: @blog %>
+  <div class="mb-5 justify-between items-center mt-3 mx-auto w-full flex">
+    <%= link_to "編集する", edit_blog_path(blog), class: "rounded-lg py-3 px-4 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "一覧へ戻る", session[:last_visited_index] || root_path, class: "rounded-lg py-3 px-4 bg-gray-100 inline-block font-medium" %>
+  </div>
 </div>

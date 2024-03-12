@@ -7,11 +7,12 @@ class SessionsController < ApplicationController
     def create
         user = User.find_by(email: params[:email].downcase)
         if user && user.authenticate(params[:password])
-        log_in(user)
-        redirect_to profile_path
+            session[:failed_login_attempts] = 0 # ログイン成功時にカウンターをリセット
+            log_in(user)
+            redirect_to profile_path
         else
-        flash.now[:danger] = 'メールアドレスかパスワードが間違っています。'
-        render 'new'
+            flash.now[:alert] = 'メールアドレスまたはパスワードが間違っています'
+            render 'new'
         end
     end
 
