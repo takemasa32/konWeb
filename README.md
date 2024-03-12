@@ -58,9 +58,14 @@ rake db:migrate RAILS_ENV=production && rake assets:precompile RAILS_ENV=product
 ```
 
 - 行ったmigration
+'''
 rails g scaffold blogs title:string body:string category:string user:strings
+'''
 
-
+- サーバーの再起動
+'''
+sudo nginx -s reload
+'''
 
 参考
 実行環境系
