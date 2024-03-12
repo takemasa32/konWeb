@@ -172,6 +172,10 @@ GEM
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     popper_js (1.16.1)
+    prettier (4.0.4)
+      syntax_tree (>= 4.0.1)
+      syntax_tree-haml (>= 2.0.0)
+      syntax_tree-rbs (>= 0.2.0)
     prettier_print (1.2.1)
     psych (5.1.1.1)
       stringio
@@ -312,6 +316,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mini_magick
+  prettier
   prettier_print
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
